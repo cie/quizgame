@@ -1,0 +1,36 @@
+<body>
+  {{>game}}
+</body>
+
+<template name="game">
+{{#if gameCreating}}
+  {{>gameCreating}}
+{{/if}}
+{{#if teamsJoining}}
+  {{>teamsJoining}}
+{{/if}}
+</template>
+
+<template name="gameCreating">
+<h1>Create a new game</h1>
+<p>Name: <input id="gameName" type="text"></p>
+<p>Rounds:</p>
+<ul class="rounds">
+  {{#each rounds}}
+    <li class="{{#if roundSelected}}selected{{/if}}">{{name}}</li>
+  {{/each}}
+</ul>
+<p><input type="button" class="ok" value="Create"></p>
+</template>
+
+
+<template name="teamsJoining">
+<p class="message">Go to <br> {{joiningUrl}} <br> to join.</p>
+<ul class="teams">
+  {{#each teams}}
+  <li>{{name}}</li>
+  {{/each}}
+</ul>
+</template>
+
+

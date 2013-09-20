@@ -11,7 +11,8 @@ ChoiceQuestion = (text, answers) ->
 
 @Rounds = []
 
-Round = (init) ->
+@Round = (name, init) ->
+  @name = name
   @questions = []
   @number = (text, answer) -> @questions.push new NumberQuestion(text, answer)
   @choice = (text, answers) -> @questions.push new ChoiceQuestion(text, answers)
